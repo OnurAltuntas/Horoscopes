@@ -14,14 +14,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        var horoscopeAdapter=ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,burclar)
+        var horoscopeAdapter=ArrayAdapter<String>(this,R.layout.sinle_line,R.id.txtHoroscope,burclar)
         listHoroscope.adapter=horoscopeAdapter
 
      listHoroscope.setOnItemClickListener { parent, view, position, id ->
 
          var temp=view as TextView
 
-         Toast.makeText(this,"Clicked: "+temp.text.toString()+" Pos:"+position,Toast.LENGTH_LONG).show()
+         Toast.makeText(this@MainActivity,"Clicked: "+temp.text.toString()+" Pos:"+position,Toast.LENGTH_LONG).show()
 
      }
 
