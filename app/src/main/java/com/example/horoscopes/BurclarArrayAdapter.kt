@@ -12,23 +12,28 @@ class BurclarArrayAdapter( var gelencontext: Context, resource: Int, textViewRes
     ArrayAdapter<String>(gelencontext, resource, textViewResourceId,txtHoroscopes) {
 
 
-
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
 
-        var inflater=LayoutInflater.from(gelencontext)
-        var singleline_view=inflater.inflate(R.layout.single_line2,parent,false)
+        var singleline_view = convertView
 
-        var burcImgview=singleline_view.imgHoroscopes
-        var burcAdi=singleline_view.txtHoroscopes
-        var burcTarih=singleline_view.txtHoroscopeDate
+        if (singleline_view == null) {
+            var inflater = LayoutInflater.from(gelencontext)
+            singleline_view = inflater.inflate(R.layout.single_line2, parent, false)
+        }
 
-        burcImgview.setImageResource(burcImg[position])
-        burcAdi.setText(txtHoroscopes[position])
-        burcTarih.setText(txtHoroscopeDate[position])
+//        var inflater=LayoutInflater.from(gelencontext)
+//        var singleline_view=inflater.inflate(R.layout.single_line2,parent,false)
+
+        var burcImgview = singleline_view?.imgHoroscopes
+        var burcAdi = singleline_view?.txtHoroscopes
+        var burcTarih = singleline_view?.txtHoroscopeDate
+
+        burcImgview?.setImageResource(burcImg[position])
+        burcAdi?.setText(txtHoroscopes[position])
+        burcTarih?.setText(txtHoroscopeDate[position])
 
 
-        return singleline_view
+        return singleline_view!!
     }
-
 
 }
